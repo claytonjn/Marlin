@@ -107,7 +107,7 @@
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#define SERIAL_PORT 1
+#define SERIAL_PORT -1
 
 /**
  * Serial Port Baud Rate
@@ -128,7 +128,7 @@
  * Currently Ethernet (-2) is only supported on Teensy 4.1 boards.
  * :[-2, -1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#define SERIAL_PORT_2 -1
+#define SERIAL_PORT_2 1
 //#define BAUDRATE_2 250000   // Enable to override BAUDRATE
 
 /**
@@ -927,7 +927,7 @@
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.56, 79.84, 400.80, 424.18 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.36, 80.42, 400.80, 413.76 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1001,7 +1001,7 @@
  *   https://blog.kyneticcnc.com/2018/10/computing-junction-deviation-for-marlin.html
  */
 #if DISABLED(CLASSIC_JERK)
-  #define JUNCTION_DEVIATION_MM 0.013 // (mm) Distance from real junction edge
+  #define JUNCTION_DEVIATION_MM 0.06  // (mm) Distance from real junction edge
   #define JD_HANDLE_SMALL_SEGMENTS    // Use curvature estimation instead of just the junction angle
                                       // for small segments (< 1mm) with large junction angles (> 135°).
 #endif
@@ -1179,7 +1179,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -38, 2, -3.95 }
+#define NOZZLE_TO_PROBE_OFFSET { -40, 6, -3.72 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1283,14 +1283,14 @@
  * These options are most useful for the BLTouch probe, but may also improve
  * readings with inductive probes and piezo sensors.
  */
-#define PROBING_HEATERS_OFF       // Turn heaters off when probing
+//#define PROBING_HEATERS_OFF       // Turn heaters off when probing
 #if ENABLED(PROBING_HEATERS_OFF)
   #define WAIT_FOR_BED_HEATER     // Wait for bed to heat back up between probes (to improve accuracy)
   #define WAIT_FOR_HOTEND         // Wait for hotend to heat back up between probes (to improve accuracy & prevent cold extrude)
 #endif
 #define PROBING_FANS_OFF          // Turn fans off when probing
 #define PROBING_ESTEPPERS_OFF     // Turn all extruder steppers off when probing
-#define PROBING_STEPPERS_OFF      // Turn all steppers off (unless needed to hold position) when probing (including extruders)
+//#define PROBING_STEPPERS_OFF      // Turn all steppers off (unless needed to hold position) when probing (including extruders)
 //#define DELAY_BEFORE_PROBING 200  // (ms) To prevent vibrations from triggering piezo sensors
 
 // Require minimum nozzle and/or bed temperature for probing
@@ -1596,7 +1596,7 @@
   /**
    * Enable the G26 Mesh Validation Pattern tool.
    */
-  //#define G26_MESH_VALIDATION
+  #define G26_MESH_VALIDATION
   #if ENABLED(G26_MESH_VALIDATION)
     #define MESH_TEST_NOZZLE_SIZE    0.4  // (mm) Diameter of primary nozzle.
     #define MESH_TEST_LAYER_HEIGHT   0.2  // (mm) Default layer height for G26.
@@ -2366,6 +2366,9 @@
 // https://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller
 //
 #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+//#define ST7920_DELAY_1 DELAY_NS(120)
+//#define ST7920_DELAY_2 DELAY_NS(80)
+//#define ST7920_DELAY_3 DELAY_NS(580)
 
 //
 // K.3D Full Graphic Smart Controller
