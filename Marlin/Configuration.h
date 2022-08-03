@@ -583,7 +583,7 @@
 
 // Below this temperature the heater will be switched off
 // because it probably indicates a broken thermistor wire.
-#define HEATER_0_MINTEMP   9
+#define HEATER_0_MINTEMP   21
 #define HEATER_1_MINTEMP   5
 #define HEATER_2_MINTEMP   5
 #define HEATER_3_MINTEMP   5
@@ -642,9 +642,9 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    #define DEFAULT_Kp  13.15
-    #define DEFAULT_Ki   0.84
-    #define DEFAULT_Kd  51.53
+    #define DEFAULT_Kp  14.02
+    #define DEFAULT_Ki   0.87
+    #define DEFAULT_Kd  56.64
   #endif
 #endif
 
