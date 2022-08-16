@@ -116,5 +116,5 @@ constexpr temp_entry_t temptable_66[] PROGMEM = {
   { OV(1015.8),  60 },
   { OV(1019.8),  36 },
   { OV(1020.9),  23 },
-  { OV(1023.0),  20 }
+  { OV(1023.0),  21 }
 };
